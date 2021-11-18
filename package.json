@@ -1,0 +1,17 @@
+{
+  "name": "bands-explorer",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.0.2"
+  }
+}
