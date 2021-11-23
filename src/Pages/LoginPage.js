@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import LoginForm from "../Components/LoginForm";
 
-const Login = ({ user, setUser, users, setUsers }) => {
+const Login = ({ setUser, user, setUsers, users }) => {
   const navigate = useNavigate();
   const [createUser, setCreateUser] = useState(false);
 

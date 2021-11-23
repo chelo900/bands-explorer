@@ -1,18 +1,11 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
-import CreateUser from "../Components/CreateUser";
-import { validate } from "../utils/validate";
+import RegisterForm from "./RegisterForm";
+import { validateUser } from "../utils/validateUser";
 import style from "./styles/LoginForm.module.css";
 
-const LoginForm = ({
-  createUser,
-  setCreateUser,
-  user,
-  setUser,
-  users,
-  setUsers,
-}) => {
-  const [inputValue, setInputValue] = useState({});
+const LoginForm = ({ createUser, setCreateUser, setUser, users, setUsers }) => {
+  const [inputValue, setInputValue] = useState({ email: "", password: "" });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,7 +13,7 @@ const LoginForm = ({
   };
 
   const handleLogin = () => {
-    if (validate(inputValue, users)) {
+    if (validateUser(inputValue, users)) {
       setUser({
         email: inputValue.email,
         password: inputValue.password,
@@ -53,6 +46,7 @@ const LoginForm = ({
           placeholder="name@example.com"
           name="email"
           onChange={handleChange}
+          value={inputValue.email}
         />
       </div>
       <div className="mb-3 row">
@@ -64,6 +58,7 @@ const LoginForm = ({
           className="form-control"
           name="password"
           onChange={handleChange}
+          value={inputValue.password}
         />
       </div>
       <button type="button" className="btn btn-primary" onClick={handleLogin}>
@@ -75,9 +70,16 @@ const LoginForm = ({
         className="btn btn-secondary"
         onClick={() => setCreateUser(true)}
       >
-        Create User
+        Register
       </button>
-      {createUser && <CreateUser setCreateUser={setCreateUser} />}
+      {createUser && (
+        <RegisterForm
+          setInputValue={setInputValue}
+          setCreateUser={setCreateUser}
+          setUsers={setUsers}
+          users={users}
+        />
+      )}
     </div>
   );
 };

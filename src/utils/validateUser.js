@@ -1,4 +1,4 @@
-export const validate = (user, users) => {
+export const validateUser = (user, users) => {
   if (user.email && user.password) {
     const validUser = users.find(
       (element) =>
