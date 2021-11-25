@@ -1,0 +1,13 @@
+.container {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  text-align: center;
+}
+
+.container h1 {
+  font-weight: bold;
+  padding-bottom: 12px;
+}
+
+.container h3 {
+  padding-bottom: 12px;
+}
