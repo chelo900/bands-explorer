@@ -1,16 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import LoginPage from "./Pages/LoginPage";
-import BandsPage from "./Pages/BandsPage";
+import HomePage from "./Pages/HomePage";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 
 const App = () => {
-  const [user, setUser] = React.useState({ loggedIn: false });
+  const [user, setUser] = React.useState(null);
   const [users, setUsers] = React.useState([
     { email: "user@user", password: "user" },
   ]);
-
+  const loggedUser = JSON.parse(localStorage.getItem("user"));
   return (
     <Router>
       <div className="App">
@@ -27,7 +32,11 @@ const App = () => {
               />
             }
           />
-          <Route exact path="/home" element={<BandsPage />} />
+          {loggedUser ? (
+            <Route exact path="/home" element={<HomePage />} />
+          ) : (
+            <Route exact path="/home" element={<Navigate replace to="/" />} />
+          )}
         </Routes>
       </div>
     </Router>

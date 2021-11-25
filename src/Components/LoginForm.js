@@ -17,8 +17,10 @@ const LoginForm = ({ createUser, setCreateUser, setUser, users, setUsers }) => {
       setUser({
         email: inputValue.email,
         password: inputValue.password,
-        loggedIn: true,
       });
+
+      localStorage.setItem("user", JSON.stringify({ email: inputValue.email })); //TODO
+
       Swal.fire({
         icon: "success",
         title: "Welcome!",
@@ -26,6 +28,7 @@ const LoginForm = ({ createUser, setCreateUser, setUser, users, setUsers }) => {
         timer: 1500,
       });
     } else {
+      setInputValue({ email: "", password: "" });
       Swal.fire({
         icon: "error",
         title: "Oops!",
@@ -68,7 +71,10 @@ const LoginForm = ({ createUser, setCreateUser, setUser, users, setUsers }) => {
       <button
         type="button"
         className="btn btn-secondary"
-        onClick={() => setCreateUser(true)}
+        onClick={() => {
+          setCreateUser(true);
+          setInputValue({ email: "", password: "" });
+        }}
       >
         Register
       </button>
