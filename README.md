@@ -27,8 +27,9 @@ password: user
 
 ## Features
 
-- Create account and Log in
+- Create account and Log in.
 - Displays a grid of music bands.
+- See more information about the band you select.
 - Find the ideal band by applying multiple filters:
   - country
   - music genre
