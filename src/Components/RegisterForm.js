@@ -2,7 +2,7 @@ import { isEmpty } from "lodash";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { validateAccount } from "../utils/validateAccount";
-import style from "./styles/CreateUserForm.module.css";
+import style from "./RegisterForm.module.css";
 
 const RegisterForm = ({ setCreateUser, setUsers, users }) => {
   const [newUser, setNewUser] = useState({
@@ -50,67 +50,74 @@ const RegisterForm = ({ setCreateUser, setUsers, users }) => {
             <h5 className="modal-title" id="staticBackdropLabel">
               Create Account
             </h5>
+          </div>
+          <div className="modal-body border-danger">
             <form>
               <div>
-                <label>Email</label>
+                <label for="email">Email</label>
                 <div>
                   <input
                     type="email"
+                    id="email"
                     name="email"
                     onChange={handleChange}
                     value={newUser.email}
+                    aria-describedby="emailHelp"
                   />
-                  {inputError.email && (
-                    <p className={style.error}> {inputError.email} </p>
-                  )}
+                  <div id="emailHelp" className={style.errorMessage}>
+                    {inputError.email}
+                  </div>
                 </div>
               </div>
               <div>
-                <label>Password</label>
+                <label for="password">Password</label>
                 <div>
                   <input
                     type="password"
+                    id="password"
                     name="password"
                     onChange={handleChange}
                     value={newUser.password}
+                    aria-describedby="passwordHelp"
                   />
-                  {inputError.password && (
-                    <p className={style.error}> {inputError.password} </p>
-                  )}
+                  <div id="passwordHelp" className={style.errorMessage}>
+                    {inputError.password}
+                  </div>
                 </div>
               </div>
               <div>
-                <label>Repeat Password</label>
+                <label for="repeatPassword">Repeat Password</label>
                 <div>
                   <input
                     type="password"
+                    id="repeatPassword"
                     name="repeatPassword"
                     onChange={handleChange}
                     value={newUser.repeatPassword}
+                    aria-describedby="repeatHelp"
                   />
-                  {inputError.repeatPassword && (
-                    <p className={style.error}> {inputError.repeatPassword} </p>
-                  )}
+                  <div id="repeatHelp" className={style.errorMessage}>
+                    {inputError.repeatPassword}
+                  </div>
                 </div>
               </div>
             </form>
-
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                onClick={() => setCreateUser(false)}
-              >
-                Close
-              </button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={handleClick}
-              >
-                Create
-              </button>
-            </div>
+          </div>
+          <div className="modal-footer border-success">
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={() => setCreateUser(false)}
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={handleClick}
+            >
+              Create
+            </button>
           </div>
         </div>
       </div>

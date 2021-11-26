@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import style from "./styles/NavBar.module.css";
-const NavBar = () => {
+import style from "./NavBar.module.css";
+const NavBar = ({ onClick }) => {
   const loggedUser = JSON.parse(localStorage.getItem("user"));
   return (
     <nav className={`${style.container} navbar navbar-light bg-light`}>
@@ -10,14 +10,14 @@ const NavBar = () => {
         "
       </span>
       <span>
-        <Link to="/home" className={`${style.link}`}>
+        <Link to="/home" className={`${style.link}`} onClick={onClick}>
           HOME PAGE
         </Link>
       </span>
       <span className={style.logout}>
         <button
           type="button"
-          className="btn btn-danger"
+          className="btn btn-secondary"
           onClick={() => {
             localStorage.clear();
             window.location.reload();

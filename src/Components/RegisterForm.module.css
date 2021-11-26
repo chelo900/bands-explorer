@@ -21,6 +21,8 @@
   align-content: center;
 }
 
-.error {
+.errorMessage {
   color: red;
+  min-height: 18px;
+  font-size: 12px;
 }

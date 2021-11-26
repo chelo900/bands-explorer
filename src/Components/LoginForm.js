@@ -2,7 +2,7 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import RegisterForm from "./RegisterForm";
 import { validateUser } from "../utils/validateUser";
-import style from "./styles/LoginForm.module.css";
+import style from "./LoginForm.module.css";
 
 const LoginForm = ({ createUser, setCreateUser, setUser, users, setUsers }) => {
   const [inputValue, setInputValue] = useState({ email: "", password: "" });

@@ -1,59 +1,53 @@
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Card from "./Card";
-import style from "./styles/BandsContainer.module.css";
+import style from "./BandsContainer.module.css";
 
-const BandsContainer = () => {
-  const [bands, setBands] = useState([]);
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [error, setError] = useState(null);
+const BandsContainer = ({ bands, isLoading, error }) => {
+  if (isLoading) {
+    return (
+      <div className={style.container} style={{ height: "100vh" }}>
+        <div
+          className="spinner-border"
+          style={{ width: "3rem", height: "3rem" }}
+          role="status"
+        >
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
 
-  useEffect(() => {
-    // setIsLoading(true);
-    fetch("https://my-json-server.typicode.com/improvein/dev-challenge/bands")
-      .then((res) => res.json())
-      .then((data) => {
-        // setIsLoading(false)
-        setBands(data);
-      });
-    // .catch((error) => {
-    //   // setError(error);
-    // };
-  }, []);
+  if (bands.length === 0) {
+    return (
+      <div className={style.container}>
+        <h2>No bands found</h2>
+      </div>
+    );
+  }
 
-  // if (isLoading) {
-  //   return <div>Loading...</div>;
-  // }
-
-  // if(bands.length === 0) {
-  //   // render empty state
-  // }
-
-  // if (error) {
-  //   // render error state
-  //   return (<div class="alert alert-primary" role="alert">
-  //     Hubo un error al cargar los datos.
-  //   </div>
-  //   );
-  // }
+  if (error) {
+    return (
+      <div class="alert alert-primary" role="alert">
+        There was an error. Please refresh your page.
+      </div>
+    );
+  }
 
   return (
-    <div className="container">
-      <div className="row justify-content-center justify-content-md-between">
-        {bands.length &&
-          bands.map((band) => (
-            <div key={band.id} className="col-9 col-sm-6 col-md-4">
-              <a>
-                <Card
-                  name={band.name}
-                  genreCode={band.genreCode}
-                  year={band.year}
-                  country={band.country}
-                />
-              </a>
-            </div>
-          ))}
-      </div>
+    <div className={style.container}>
+      {bands.length &&
+        bands.map((band) => (
+          <Link to="/home" key={band.id} className={`${style.link}`}>
+            <Card
+              name={band.name}
+              genreCode={band.genreCode}
+              year={band.year}
+              country={band.country}
+            />
+          </Link>
+        ))}
     </div>
   );
 };
+
 export default BandsContainer;

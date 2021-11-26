@@ -13,7 +13,7 @@ import "./App.css";
 const App = () => {
   const [user, setUser] = React.useState(null);
   const [users, setUsers] = React.useState([
-    { email: "user@user", password: "user" },
+    { email: "user@user.com", password: "user" },
   ]);
   const loggedUser = JSON.parse(localStorage.getItem("user"));
   return (

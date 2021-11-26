@@ -1,6 +1,5 @@
 import Icon from "@mdi/react";
 import { mdiMapMarker, mdiCalendar } from "@mdi/js";
-
 import style from "./Card.module.css";
 
 const Card = ({ name, genreCode, year, country }) => {
@@ -17,7 +16,7 @@ const Card = ({ name, genreCode, year, country }) => {
               horizontal
               vertical
               rotate={180}
-              color="red"
+              color="blue"
             />
           </div>
           {year}
@@ -31,7 +30,7 @@ const Card = ({ name, genreCode, year, country }) => {
               horizontal
               vertical
               rotate={180}
-              color="red"
+              color="blue"
             />
           </div>
           <span className={style.cardCountry}>{country}</span>

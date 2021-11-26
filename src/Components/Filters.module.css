@@ -1,0 +1,9 @@
+.container {
+  text-align: center;
+}
+
+.container select {
+  margin: 16px;
+  border-radius: 4px;
+  padding: 2px;
+}
