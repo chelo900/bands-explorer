@@ -20,6 +20,11 @@ npm start
 
 When Parcel finishes building, server will be running at http://localhost:1234
 
+First you have to create an account or you may use the default test user:
+
+email: user@user.com
+password: user
+
 ## Features
 
 - Create account and Log in
