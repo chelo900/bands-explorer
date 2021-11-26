@@ -49,7 +49,6 @@ const HomePage = () => {
       }
     }
   };
-
   const handleSortSelect = (event) => {
     const { name, value } = event.target;
     if (value === "") {

@@ -19,7 +19,7 @@ const LoginForm = ({ createUser, setCreateUser, setUser, users, setUsers }) => {
         password: inputValue.password,
       });
 
-      localStorage.setItem("user", JSON.stringify({ email: inputValue.email })); //TODO
+      localStorage.setItem("user", JSON.stringify({ email: inputValue.email }));
 
       Swal.fire({
         icon: "success",

@@ -37,7 +37,11 @@ const BandsContainer = ({ bands, isLoading, error }) => {
     <div className={style.container}>
       {bands.length &&
         bands.map((band) => (
-          <Link to="/home" key={band.id} className={`${style.link}`}>
+          <Link
+            to={`/home/${band.id}`}
+            key={band.id}
+            className={`${style.link}`}
+          >
             <Card
               name={band.name}
               genreCode={band.genreCode}

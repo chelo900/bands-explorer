@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import LoginPage from "./Pages/LoginPage";
 import HomePage from "./Pages/HomePage";
+import DetailPage from "./Pages/DetailPage";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 
@@ -36,6 +37,15 @@ const App = () => {
             <Route exact path="/home" element={<HomePage />} />
           ) : (
             <Route exact path="/home" element={<Navigate replace to="/" />} />
+          )}
+          {loggedUser ? (
+            <Route exact path="/home/:id" element={<DetailPage />} />
+          ) : (
+            <Route
+              exact
+              path="/home/:id"
+              element={<Navigate replace to="/" />}
+            />
           )}
         </Routes>
       </div>
