@@ -29,8 +29,7 @@ const RegisterForm = ({ setCreateUser, setUsers, users }) => {
         timer: 2500,
       });
     } else if (isEmpty(inputError)) {
-      const pushUser = { ...newUser };
-      delete pushUser.repeatPassword;
+      const pushUser = { email: newUser.email, password: newUser.password };
       setUsers([...users, pushUser]);
       setCreateUser(false);
       Swal.fire({
