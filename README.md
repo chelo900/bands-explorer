@@ -1,4 +1,4 @@
-# bands-explorer
+# BANDS EXPLORER
 
 A simple web app to visualize a grid of music bands, allows you to filter and sort the results in order to find the band you want. Built using React 17 and Bootstrap.
 
